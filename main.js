@@ -17,6 +17,7 @@ let resetButton = document.getElementById("reset-button");
 let chances = 10;
 let gameOver = false;
 let chanceArea = document.getElementById("chance-area");
+let history = [];
 
 playButton.addEventListener("click", play);
 resetButton.addEventListener("click", reset);
@@ -34,7 +35,10 @@ function play() {
     resultArea.textContent = "1과 100사이에 값을 입력해주세요.";
     return;
   }
-
+  if (history.includes(userValue)) {
+    resultArea.textContent = "이미 입력한 값입니다. 다시 입력해주세요.";
+    return;
+  }
   chances--;
   chanceArea.textContent = `남은기회 : ${chances}번`;
   if (userValue < computerNum) {
@@ -46,6 +50,9 @@ function play() {
     resultArea.textContent = "맞추셨습니다.";
     playButton.disabled = true;
   }
+
+  history.push(userValue);
+  console.log(history);
 
   if (chances < 1) {
     gameOver = true;
