@@ -9,10 +9,17 @@
 // 유저가 이미 입력한 숫자를 또 입력하면, 알려준다, 기회를 깍지 않는다.
 
 let computerNum = 0;
+let playButton = document.getElementById("play-button");
+// console.log("버튼", playButton);
+playButton.addEventListener("click", play);
 
 function pickRandomNum() {
   computerNum = Math.floor(Math.random() * 100) + 1;
   console.log("정답", computerNum);
+}
+
+function play() {
+  console.log("플레이");
 }
 
 pickRandomNum();
