@@ -50,7 +50,7 @@ function play() {
     resultArea.textContent = "down";
   } else {
     resultArea.textContent = "맞추셨습니다.";
-    playButton.disabled = true;
+    gameOver = true;
   }
 
   history.push(userValue);
@@ -60,7 +60,7 @@ function play() {
     gameOver = true;
   }
 
-  if (gameOver) {
+  if (gameOver == true) {
     playButton.disabled = true;
   }
 }
