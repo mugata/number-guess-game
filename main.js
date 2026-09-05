@@ -10,7 +10,9 @@
 
 let computerNum = 0;
 let playButton = document.getElementById("play-button");
+let userInput = document.getElementById("user-input");
 // console.log("버튼", playButton);
+
 playButton.addEventListener("click", play);
 
 function pickRandomNum() {
@@ -19,7 +21,14 @@ function pickRandomNum() {
 }
 
 function play() {
-  console.log("플레이");
+  let userValue = userInput.value;
+  if (userValue < computerNum) {
+    console.log("up!!");
+  } else if (userValue > computerNum) {
+    console.log("down");
+  } else {
+    console.log("맞추셨습니다.");
+  }
 }
 
 pickRandomNum();
