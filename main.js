@@ -21,7 +21,9 @@ let history = [];
 
 playButton.addEventListener("click", play);
 resetButton.addEventListener("click", reset);
-userInput.addEventListener("focus", disapper);
+userInput.addEventListener("focus", function () {
+  userInput.value = "";
+});
 
 function pickRandomNum() {
   computerNum = Math.floor(Math.random() * 10) + 1;
@@ -71,7 +73,4 @@ function reset() {
   resultArea.textContent = "결과값이 여기 나옵니다.!!";
 }
 
-function disapper() {
-  userInput.value = "";
-}
 pickRandomNum();
